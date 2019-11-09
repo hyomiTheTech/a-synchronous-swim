@@ -1,10 +1,12 @@
-
+const queue = require('./js/messageQueue'); // imported AFTER STEP 4 due to refactoring with Eric
 
 
 const keypressHandler = require('./js/keypressHandler');
-keypressHandler.initialize(message => console.log(`Message received: ${message}`));
+// keypressHandler.initialize(message => console.log(`Message received: ${message}`)); // refactored with Eric to initialize keypressHandler HERE instead of in httpHandler.js
+keypressHandler.initialize(queue.enqueue);
 
 const httpHandler = require('./js/httpHandler');
+httpHandler.initialize(queue); // initialized httpHandler after refactoring with Eric
 
 
 const http = require('http');

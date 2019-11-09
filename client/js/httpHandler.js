@@ -6,28 +6,42 @@
   // TODO: build the swim command fetcher here
   //
 
-  // STEP 1: create ajax request for 'GET'
-  const ajaxGet = () => {
-    // var formData = new FormData();
-    // formData.append('file', file);
+  // // STEP 1: create ajax request for 'GET'
+  // const ajaxGet = (data) => {
+  //   // var formData = new FormData();
+  //   // formData.append('file', file);
+  //   $.ajax({
+  //     type: 'GET',
+  //     // data: formData,
+  //     url: serverUrl,
+  //     // cache: false,
+  //     // contentType: 'string',
+  //     // processData: false,
+  //     success: (data) => {
+  //       // console.log("Get is Success")
+  //       // reload the page
+  //       // window.location = window.location.href;
+  //       SwimTeam.move(data);
+  //     }
+  //   });
+  // };
+  // setInterval(() => ajaxGet(), 5000);
+
+
+  const ajaxGet = (data) => {
+
     $.ajax({
       type: 'GET',
-      // data: formData,
       url: serverUrl,
-      // cache: false,
-      // contentType: 'string',
-      // processData: false,
       success: (data) => {
-        console.log("Get is Success")
-        // reload the page
-        // window.location = window.location.href;
+        // console.log("Get is Success")
         SwimTeam.move(data);
+        // console.log(data);
       }
     });
   };
 
-  setInterval(() => ajaxGet(), 1000);
-
+  setInterval(() => ajaxGet(), 5000);
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
