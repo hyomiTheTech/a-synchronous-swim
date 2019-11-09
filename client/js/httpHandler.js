@@ -6,6 +6,29 @@
   // TODO: build the swim command fetcher here
   //
 
+  // STEP 1: create ajax request for 'GET'
+  const ajaxGet = () => {
+    // var formData = new FormData();
+    // formData.append('file', file);
+    $.ajax({
+      type: 'GET',
+      // data: formData,
+      url: serverUrl,
+      // cache: false,
+      // contentType: 'string',
+      // processData: false,
+      success: (data) => {
+        console.log("Get is Success")
+        // reload the page
+        // window.location = window.location.href;
+        SwimTeam.move(data);
+      }
+    });
+  };
+
+  setInterval(() => ajaxGet(), 1000);
+
+
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
   // Note: remember to fix the URL below.
@@ -17,12 +40,13 @@
     $.ajax({
       type: 'POST',
       data: formData,
-      url: 'FILL_ME_IN',
+      url: serverUrl,
       cache: false,
       contentType: false,
       processData: false,
       success: () => {
         // reload the page
+        console.log("Post is Success")
         window.location = window.location.href;
       }
     });
